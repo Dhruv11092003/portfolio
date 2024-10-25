@@ -1,0 +1,95 @@
+/* Container Styles */
+.admin-console-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+  }
+  
+  .theme-light {
+    background: linear-gradient(
+      90deg,
+      hsla(152, 100%, 50%, 1) 0%,
+      hsla(186, 100%, 69%, 1) 100%
+    );
+  }
+  
+  .theme-dark {
+    background-color: black;
+  }
+  
+  /* Form Styles */
+  .console-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 50vw;
+    max-width: 400px;
+    transition: background-color 0.5s ease;
+  }
+  
+  .theme-dark .console-form {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: white;
+  }
+  
+  /* Input Field Styles */
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .input-console {
+    height: 40px;
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+  
+  .input-console:focus {
+    border-color: #e83c88;
+  }
+  
+  /* Error Message Styles */
+  .error-message-console {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Button Styles */
+  .button-container-console {
+    text-align: center;
+  }
+  
+  .submit-btn-console {
+    background-color: #e83c88;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn-console:hover {
+    background-color: #d03070;
+  }
+  
+  .theme-dark .submit-btn-console {
+    background-color: #febd4c;
+    color: black;
+  }
+  
+  .theme-dark .submit-btn-console:hover {
+    background-color: #fca135;
+  }
+  

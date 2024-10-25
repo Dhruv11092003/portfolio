@@ -135,11 +135,13 @@ app.post("/add-Admin", async (req, res) => {
 app.post("/adminLogin", async (req, res) => {
   try {
     const { adminName, password } = req.body;
+    
     const adminCreds = await adminDetails.findOne({});
     // console.log(adminCreds.password)
 
     if (adminCreds.adminName === adminName) {
       const checkPassword = await bcrypt.compare(password, adminCreds.password);
+      
       if (checkPassword) {
         const payload = { adminName, password };
         jwtToken = jwt.sign(payload, "adbcde");

@@ -1,0 +1,195 @@
+
+
+.background-light {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(254,205,76,1) 0%, rgba(232,60,136,1) 100%);
+    color: #333;
+}
+
+.background-dark {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #121212;
+    /* color: #f0f0f0; */
+}
+
+.main-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.experience-container-light {
+    width: 90%;
+    max-width: 800px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+
+
+.experience-container-dark {
+    width: 90%;
+    max-width: 800px;
+    text-align: left;
+    background-color:rgb(68, 68, 68);
+    color:whitesmoke;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.work-title-light, .responsibilities-title-light {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.work-title-dark, .responsibilities-title-dark {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: whitesmoke;
+}
+
+.internship-details-light {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #666;
+}
+.internship-details-dark {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color:whitesmoke;
+}
+
+.responsibilities-list {
+    list-style: none;
+    padding-left: 20px;
+    
+}
+
+.responsibilities-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.admin-link {
+    margin-top: 1.5rem;
+}
+
+.admin-button-light {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-button-dark{
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-button-light:hover {
+    background-color: #e64a19;
+}
+
+.admin-button-dark:hover {
+    color: white;
+    border: 2px solid white;
+    background-color:transparent;
+}
+
+.education-container-light {
+
+    width: 90%;
+
+    max-width: 800px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+
+
+  .education-container-dark {
+
+    width: 90%;
+
+    max-width: 800px;
+    text-align: left;
+    background:rgb(68, 68, 68);;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .education-title-light {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .education-title-dark {
+    color: whitesmoke;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .card-light {
+    color: black;
+    background-color:lightgray;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-dark {
+    color:white;
+    background-color:rgb(126, 125, 125);
+    /* border: 1px solid #ced4da; */
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .card h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .card p {
+    margin: 5px 0;
+  }
+  
