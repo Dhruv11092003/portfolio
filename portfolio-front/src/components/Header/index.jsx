@@ -34,7 +34,9 @@ class Header extends Component {
           <a href="#AboutMe"  className={`anchors-${theme}`}>About Me</a>
           <a href="#Projects"  className={`anchors-${theme}`}>Projects</a>
           <a href="#contactMe"  className={`anchors-${theme}`}>Contact Me</a>
+          
         </div>
+        
         
 
       </nav>

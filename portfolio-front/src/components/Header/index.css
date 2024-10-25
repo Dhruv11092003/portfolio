@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prociono&display=swap');
+
+
+
 .navbar {
-  padding: 3%;
+  overflow: hidden;
+  padding: 2% 0 2% 0;
   min-height: 3vh;
   /* border: 1px solid black; */
-  min-width: 99vw;
-  height: 6vh;
-  width: auto;
+  min-width: 100vw;
+  height:4vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,7 +28,7 @@
   
 
 .navbar-dark {
-  background-color: dimgray;
+  background-color:rgb(68, 68, 68);
 }
 
 .anchors-container-lg {
@@ -41,10 +47,11 @@
 }
 
 .nav-icon-bars-light {
+
   /* align-self: flex-end; */
   font-size: 24px;
   margin-left: 5%;
-  margin-right: 2%;
+  margin-right: 5%;
 }
 .nav-icon-cross-light {
   align-self: flex-start;
@@ -59,20 +66,21 @@
   color: white;
   font-size: 24px;
   margin-left: 5%;
-  margin-right: 2%;
+  margin-right: 5%;
 }
 .nav-icon-cross-dark {
   color: white;
   align-self: flex-start;
-  font-size: 36px;
+  font-size: 24px;
   margin: 2%;
   order: 1;
   /* margin-right: 2%; */
 }
 
 .theme-container-light {
+  margin-left: 2%;
   width: 25%;
-  margin: 0px;
+  /* margin: 0px; */
   font-size: 12px;
   display: flex;
   flex-direction: column;
@@ -81,9 +89,10 @@
 }
 
 .theme-container-dark {
+  margin-left: 2%;
   color: white;
   width: 25%;
-  margin: 0px;
+  /* margin: 0px; */
   font-size: 12px;
   display: flex;
   flex-direction: column;
@@ -92,30 +101,34 @@
 }
 
 .main-heading-light {
-  font-family: sans-serif;
-  margin-right: 3vw;
-  font-size: 24px;
+  font-family: "Londrina Sketch", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-right: 10vw;
+  font-size: 28px;
+
 }
-
-
 
 .navbar-open-sm-light {
   height: 30vh;
+  padding: 1%;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   background-color: whitesmoke;
-  box-shadow: 0px 2px 16px 0px rgb(165, 165, 165);
+  box-shadow: 0px 1px 2px 0px white;
   position: sticky;  
   top:0%;
   z-index: 1;
 }
 
 .main-heading-dark {
-  font-family: sans-serif;
-  margin-right: 3vw;
-  font-size: 24px;
+  font-family: "Londrina Sketch", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-right: 10vw;
+  font-size: 28px;
   color: white;
 }
 
@@ -125,24 +138,28 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: dimgrey;
-  box-shadow: 0px 2px 16px 0px rgb(197, 197, 197);
+  /* background-color: grey; */
+  box-shadow: 0px 1px 15px 0px rgb(197, 197, 197);
   position: sticky;  
   top:0%;
   z-index: 1;
+  background-color:rgb(68, 68, 68);
 }
 
 .anchors-light {
   font-size: 18px;
   color: black;
   text-decoration: none;
+  font-family: "Prociono", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .hr-line-light {
     border: none;
   height: 0.5vh;
   width: 80%;
-  background-color: greenyellow;
+  background-color: black;
   margin-bottom: 3%;
 }
 
@@ -156,13 +173,16 @@
   border: none;
   height: 0.5vh;
   width: 80%;
-  background-color: goldenrod;
+  background-color: whitesmoke;
   margin-bottom: 3%;
 }
 
 @media screen and (min-width: 700px) and (max-width: 1200px) {
     .navbar {
-        height: 4vh;
+        height: 5vh;
+        position: sticky;
+        top:0%;
+        padding:0% 0% 1% 0%;
       }
       .anchors-container-lg {
         display: flex;
@@ -171,12 +191,12 @@
         margin-right: 1%;
       }
       .anchors-light {
-        font-size: 24px;
+        font-size: 18px;
         color: black;
         text-decoration: none;
       }
       .anchors-dark {
-        font-size: 24px;
+        font-size: 14px;
         color:white;
         text-decoration: none;
       }
@@ -199,7 +219,7 @@
       }
       .theme-container-light {
         width: 25%;
-        margin: 0px;
+        margin-left: 1%;
         font-size: 12px;
         display: flex;
         flex-direction: column;
@@ -210,7 +230,7 @@
       .theme-container-dark {
         color: white;
         width: 25%;
-        margin: 0px;
+        margin-left: 1%;
         font-size: 12px;
         display: flex;
         flex-direction: column;
@@ -221,7 +241,8 @@
 
 @media screen and (min-width: 1201px) {
   .navbar {
-    height: 4vh;
+    height: 3vh;
+    padding: 1% 0% 1% 0%;
   }
   .anchors-container-lg {
     display: flex;
@@ -231,12 +252,12 @@
   }
 
   .anchors-light {
-    font-size: 24px;
+    font-size: 18px;
     color: black;
     text-decoration: none;
   }
   .anchors-dark {
-    font-size: 24px;
+    font-size: 18px;
     color:white;
     text-decoration: none;
   }
@@ -259,8 +280,8 @@
   }
   .theme-container-light {
     width: 25%;
-    margin: 0px;
-    font-size: 18px;
+    margin-left: 1%;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -270,8 +291,8 @@
   .theme-container-dark {
     color: white;
     width: 25%;
-    margin: 0px;
-    font-size: 18px;
+    margin-left: 1%;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
