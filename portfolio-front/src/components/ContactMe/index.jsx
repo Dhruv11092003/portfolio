@@ -39,7 +39,7 @@ class ContactMe extends Component {
     };
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/contactMe`,
+        `${process.env.REACT_APP_API_URL}/api/contactMe`,
         data
       );
       if (response.status === 201) {

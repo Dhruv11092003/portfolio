@@ -24,7 +24,7 @@ class AdminConsole extends Component {
   sendData = async (data) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/adminLogin`,
+        `${process.env.REACT_APP_API_URL}/api/adminLogin`,
         data
       );
       if (response.status === 200) {

@@ -98,7 +98,7 @@ const sendContactAcceptMail = async () => {
 
 // sendContactAcceptMail()
 
-app.post("/contactMe", async (req, res) => {
+app.post("/api/contactMe", async (req, res) => {
   try {
     const { inquiredBy, email, contactNo, message } = req.body;
     const date = new Date();
@@ -119,7 +119,7 @@ app.post("/contactMe", async (req, res) => {
   }
 });
 
-app.post("/add-Admin", async (req, res) => {
+app.post("/api/add-Admin", async (req, res) => {
   try {
     let { adminName, password } = req.body;
     password = await bcrypt.hash(password, 10);
@@ -132,7 +132,7 @@ app.post("/add-Admin", async (req, res) => {
   }
 });
 
-app.post("/adminLogin", async (req, res) => {
+app.post("/api/adminLogin", async (req, res) => {
   try {
     const { adminName, password } = req.body;
     
@@ -157,7 +157,7 @@ app.post("/adminLogin", async (req, res) => {
   }
 });
 
-app.post("/add-project", authoriseAdmin, async (req, res) => {
+app.post("/api/add-project", authoriseAdmin, async (req, res) => {
   try {
     let { username } = req;
     const {
@@ -183,7 +183,7 @@ app.post("/add-project", authoriseAdmin, async (req, res) => {
   }
 });
 
-app.post("/add-certificate", authoriseAdmin, async (req, res) => {
+app.post("/api/add-certificate", authoriseAdmin, async (req, res) => {
   try {
     let { username } = req;
     const {
@@ -207,7 +207,7 @@ app.post("/add-certificate", authoriseAdmin, async (req, res) => {
   }
 });
 
-app.get("/get-projects", async (req, res) => {
+app.get("/api/get-projects", async (req, res) => {
   try {
     const allProjects = await projects.find({});
     res.status(200).send(allProjects);
@@ -216,7 +216,7 @@ app.get("/get-projects", async (req, res) => {
   }
 });
 
-app.get("/get-certificates", async (req, res) => {
+app.get("/api/get-certificates", async (req, res) => {
   try {
     const allCertificates = await certificates.find({});
     res.status(200).send(allCertificates);

@@ -21,7 +21,7 @@ class AboutUs extends Component {
 
   getCertificates = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/get-certificates`
+      `${process.env.REACT_APP_API_URL}/api/get-certificates`
     );
 
     if (response.status === 200) {

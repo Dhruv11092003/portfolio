@@ -66,7 +66,7 @@ class AdminPanel extends Component {
     }
 
     const { isCertificateMode, certificateData, projectData } = this.state;
-    const endpoint = isCertificateMode ? "/add-certificate" : "/add-project";
+    const endpoint = isCertificateMode ? "/api/add-certificate" : "/api/add-project";
     const data = isCertificateMode ? certificateData : projectData;
 
     try {
