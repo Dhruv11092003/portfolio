@@ -1,11 +1,7 @@
 {
     "builds": [
-      { "src": "project-backend/**/*.js", "use": "@vercel/node" },
+      { "src": "project-backend/api/**/*.js", "use": "@vercel/node" },
       { "src": "project-front/package.json", "use": "@vercel/static-build", "config": { "distDir": "project-front/build" } }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/project-backend/$1" },
-      { "src": "/(.*)", "dest": "/project-front/$1" }
     ]
   }
   
