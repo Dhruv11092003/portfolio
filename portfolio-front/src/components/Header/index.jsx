@@ -31,9 +31,9 @@ class Header extends Component {
         <FaBars onClick={this.toggleNavbar} className={`nav-icon-bars-${theme}`}/>
         <div className="anchors-container-lg">
           <Link to="/"  className={`anchors-${theme}`} >Home</Link>
-          <a href="#AboutMe"  className={`anchors-${theme}`}>About Me</a>
+          <Link to="/#AboutMe"  className={`anchors-${theme}`}>About Me</Link>
           <a href="#Projects"  className={`anchors-${theme}`}>Projects</a>
-          <a href="#contactMe"  className={`anchors-${theme}`}>Contact Me</a>
+          <Link to="/#contactMe"  className={`anchors-${theme}`}>Contact Me</Link>
           
         </div>
         
