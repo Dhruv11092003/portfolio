@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+  "vercel-build": "vercel build"
   },
   "author": "Dhruv Kulshrestha",
   "license": "ISC",
@@ -18,6 +20,7 @@
     "mongoose": "^8.7.2",
     "nodemailer": "^6.9.15",
     "nodemon": "^3.1.7",
-    "sendmail": "^1.6.1"
+    "sendmail": "^1.6.1",
+    "vercel": "^37.14.0"
   }
 }
