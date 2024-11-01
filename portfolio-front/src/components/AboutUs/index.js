@@ -21,7 +21,11 @@ class AboutUs extends Component {
 
   getCertificates = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/get-certificates`
+      `${process.env.REACT_APP_API_URL}/api/get-certificates`,{
+        headers: {
+          "Accept": "application/json", // Specify the expected response format
+        },
+      }
     );
 
     if (response.status === 200) {
