@@ -13,7 +13,8 @@ let jwtToken = null;
 
 app.use(express.json());
 app.use(cors());
-const mongoUri = "mongodb+srv://dhruvkulshrestha11official:vrindaDhruv%4012@cluster0.7itve.mongodb.net/";
+require('dotenv').config();
+const mongoUri = `${process.env.MONGODB_URI}`;
 
 const connectDB = async () => {
   try {

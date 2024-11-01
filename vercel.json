@@ -1,7 +1,0 @@
-{
-    "routes": [
-      { "src": "/api/(.*)", "dest": "project-backend/index.js" },
-      { "src": "/(.*)", "dest": "project-front/$1" }
-    ]
-  }
-  
