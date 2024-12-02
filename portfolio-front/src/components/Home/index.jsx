@@ -49,7 +49,7 @@ class Home extends Component {
         <div className={`home-container home-container-${theme}`}>
           <div className="intro-container">
             <img
-              src="./1663329183390-Photoroom.jpg"
+              src="./3.jpg"
               alt="Dhruv Kulshrestha"
               className="profileImg"
             />
@@ -134,6 +134,7 @@ class Home extends Component {
             </div>
             <div className="skill-lg-container">
               <h1 className="headers">Skills</h1>
+          
               <ul className="skills-container">
                 {skills.map((each) => (
                   <li key={each.id}>
@@ -154,6 +155,7 @@ class Home extends Component {
                   </li>
                 ))}
               </ul>
+              
             </div>
           </div>
         </div>

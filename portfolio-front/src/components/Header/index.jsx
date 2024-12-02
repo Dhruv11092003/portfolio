@@ -8,7 +8,12 @@ import "./index.css";
 class Header extends Component {
   state = {
     navSmallOpen: false,
+    activeLink:"/"
   };
+
+  setActiveLink=(link)=>{
+    this.setState({activeLink:link})
+  }
 
   toggleNavbar = () => {
     // const {navSmallOpen}=this.state
@@ -27,13 +32,13 @@ class Header extends Component {
           <label>Dark Mode</label>
           <Switch onChange={main} checked={isChecked} height={20} width={40}/>
         </div>
-        <h1 className={`main-heading-${theme}`}>Portfolio</h1>
+     
         <FaBars onClick={this.toggleNavbar} className={`nav-icon-bars-${theme}`}/>
         <div className="anchors-container-lg">
-          <Link to="/"  className={`anchors-${theme}`} >Home</Link>
-          <Link to="/#AboutMe"  className={`anchors-${theme}`}>About Me</Link>
-          <a href="#Projects"  className={`anchors-${theme}`}>Projects</a>
-          <Link to="/#contactMe"  className={`anchors-${theme}`}>Contact Me</Link>
+          <Link to="/"  className={`anchors-${theme}`} onClick={()=>this.setActiveLink("/")}>Home</Link>
+          <Link to="/AboutMe"  className={`anchors-${theme}`} onClick={()=>this.setActiveLink("/AboutMe")}>About Me</Link>
+          <Link to="/Projects"  className={`anchors-${theme}`} onClick={()=>this.setActiveLink("/Projects")}>Projects</Link>
+          <Link to="/#contactMe"  className={`anchors-${theme}`} onClick={()=>this.setActiveLink("/#contactMe")}>Contact Me</Link>
           
         </div>
         
@@ -46,11 +51,11 @@ class Header extends Component {
         <div className="anchors-container-sm">
           <Link to="/" className={`anchors-${theme}`}>Home</Link>
           <hr className={`hr-line-${theme}`}/>
-          <a href="#AboutMe" className={`anchors-${theme}`}>About Me</a>
+          <a href="/AboutMe" className={`anchors-${theme}`}>About Me</a>
           <hr className={`hr-line-${theme}`}/>
-          <a href="#Projects" className={`anchors-${theme}`}>Projects</a>
+          <a href="/Projects" className={`anchors-${theme}`}>Projects</a>
           <hr className={`hr-line-${theme}`}/>
-          <a href="#contactMe" className={`anchors-${theme}`}>Contact Me</a>
+          <a href="/contactMe" className={`anchors-${theme}`}>Contact Me</a>
           
         </div>
         
