@@ -1,41 +1,11 @@
 
+
 .background-light {
     min-height: 100vh;
     width: 100%;
-    background: rgb(160, 170, 180);
-    background: linear-gradient(
-      90deg,
-      rgba(160, 170, 180, 1) 0%,
-      rgba(90, 110, 140, 1) 100%
-    );
+    background: linear-gradient(90deg, rgba(254,205,76,1) 0%, rgba(232,60,136,1) 100%);
+    color: #333;
 }
-
-.heading-container-light{
-  /* margin-top: 1%; */
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color:rgba(67, 86, 99, 0.829);
-  width: 100%;
-  min-height: 100px;
-  color: whitesmoke;
-}
-
-.heading-container-dark{
-  /* margin-top: 1%; */
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color:rgba(67, 86, 99, 0.829);
-  width: 100%;
-  min-height: 100px;
-  color: whitesmoke;
-}
-
 
 .background-dark {
     min-height: 100vh;
@@ -81,13 +51,11 @@
 }
 
 .section-title {
-  font-family: "Noto Sans TC", sans-serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-top: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: white;
     text-align: center;
-    text-transform: capitalize;
 }
 
 .work-title-light, .responsibilities-title-light {
@@ -219,7 +187,7 @@
   }
   
   .card-dark {
-    max-height: 200px;
+    max-height: 150px;
     max-width: 600px;
     color:white;
     background-color:rgb(126, 125, 125);
@@ -257,8 +225,8 @@
   justify-content: space-between;
   align-items: center;
   height: auto;
-  width: 80%; /* Use a percentage to adapt better within each slide */
-  max-width: 250px; /* Optional max-width for better control */
+  width: 90%; /* Use a percentage to adapt better within each slide */
+  max-width: 400px; /* Optional max-width for better control */
   padding: 20px;
   margin: 0 15px; /* Adjust as needed */
   background: rgba(255, 255, 255, 0.1);
@@ -305,13 +273,6 @@
 .certificate-link:hover {
   text-decoration: underline;
 }
-
-.error-heading{
-  color: white;
-  text-align: center;
-  font-size: 18px;
-}
-
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .main-info-container{
@@ -481,8 +442,8 @@ height: auto;
   .education-container-light {
 
     width: 50%;
-    max-height: 750px;
-    max-width: 600px;
+    max-height: 650px;
+    max-width: 700px;
     text-align: left;
     background: rgba(255, 255, 255, 0.85);
     padding: 2rem;
@@ -495,8 +456,8 @@ height: auto;
 
   .education-container-dark {
     width: 50%;
-    max-height: 750px;
-    max-width: 600px;
+    max-height: 650px;
+    max-width: 700px;
     text-align: left;
     background:rgb(68, 68, 68);;
     padding: 2rem;
@@ -506,20 +467,4 @@ height: auto;
     height: auto;
   }
   
-  .certificate-list-item {
-    margin-left: 10%;
-    border: 1px solid white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: auto;
-    width: 50%; /* Use a percentage to adapt better within each slide */
-    min-width: 400px; /* Optional max-width for better control */
-    padding: 20px;
-    margin: 0 15px; /* Adjust as needed */
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    transition: transform 0.2s;
-  }
 }

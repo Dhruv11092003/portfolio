@@ -66,7 +66,6 @@ class AdminConsole extends Component {
             theme === "light" ? "theme-light" : "theme-dark"
           }`}
         >
-          <h1 className="heading-console">Admin Console</h1>
           <form onSubmit={this.submitForm} className="console-form">
             <div className="form-field">
               <input
@@ -80,7 +79,6 @@ class AdminConsole extends Component {
             </div>
             <div className="form-field">
               <input
-              type="password"
                 value={password}
                 id="password"
                 onChange={this.setPassword}

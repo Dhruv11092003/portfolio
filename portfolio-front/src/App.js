@@ -5,7 +5,6 @@ import AboutUs from "./components/AboutUs/index";
 import AdminConsole from "./components/AdminConsole/index";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import AdminPanel from "./components/adminPanel/index";
-import Projects from "./components/Projects/index";
 
 function App() {
   const [checked, setChecked] = useState(false);
@@ -26,7 +25,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Home changeTheme={changeThemeProps} />} />
       <Route path="/AboutMe" element={<AboutUs changeTheme={changeThemeProps} />} />
-      <Route path="/projects" element={<Projects changeTheme={changeThemeProps} />} />
       <Route path="/AdminConsole" element={<AdminConsole changeTheme={changeThemeProps} />} />
       <Route 
         path="/AdminPanel" 

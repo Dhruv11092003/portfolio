@@ -75,7 +75,7 @@ class ContactMe extends Component {
     const { inquiredBy, email, contactNo, message, isEmpty } = this.state;
     const {theme}=this.props
     return (
-      <div className={`form-container-${theme}`} id="/#contactMe">
+      <div className={`form-container-${theme}`} id="contactMe">
         <h1 className="contact-me-heading">
           Contact Me <FaPhoneAlt />
         </h1>
