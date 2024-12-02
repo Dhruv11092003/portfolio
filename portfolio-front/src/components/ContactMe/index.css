@@ -1,8 +1,8 @@
-
-
 .form-container-light{
     padding: 2% 0 2% 0;
-    background-color: red;
+    background-color:rgba(67, 86, 99, 0.829);
+
+
     height: auto;
     width: 100vw;
     display: flex;
@@ -102,6 +102,7 @@ outline: none;
     .send_btn{
         align-self:center;
         width: 20vw;
+        max-height:50px;
     }
 
     .send_btn-container{

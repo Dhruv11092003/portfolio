@@ -5,6 +5,7 @@
 
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s ease;
 }
 
 .home-container {
@@ -21,11 +22,17 @@
 }
 
 .home-container-light {
-  background: rgb(47, 140, 242);
+  /* background: rgb(47, 140, 242);
   background: linear-gradient(
     90deg,
     rgba(47, 140, 242, 1) 0%,
     rgba(48, 0, 245, 0.7125700622045693) 99%
+  ); */
+  background: rgb(160, 170, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(160, 170, 180, 1) 0%,
+    rgba(90, 110, 140, 1) 100%
   );
 }
 
@@ -98,7 +105,7 @@
 
 .profileImg {
   border-radius: 100%;
-  height: 30%;
+  height:28%;
   width: 50%;
   align-self: center;
 }
@@ -175,6 +182,7 @@
 
 .social-link-container-sm {
   /* border: 1px solid black; */
+  
   width: 60vw;
   height: 5vh;
   margin-top: 3vh;
@@ -193,6 +201,7 @@
   font-size: 24px;
   margin-bottom: 1%;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .about-para {
@@ -258,7 +267,7 @@ span {
   .social-link-container-lg {
     /* border: 1px solid black; */
     flex-wrap: wrap;
-    width: 15vw;
+    width: fit-content;
     height: 5vh;
     margin-top: 2vh;
     display: flex;
@@ -288,22 +297,24 @@ span {
     flex-wrap: wrap;
   }
   .profileImg {
-    height: 45%;
+    height: 65%;
     width: 32%;
   }
   .intro-detail-container {
-    width: 35vw;
+    width: auto;
+    margin-left: 15px;
     /* border: 2px solid black; */
     text-align: start;
   }
   .name-heading-light {
-    font-size: 56px;
+    font-size: 3rem;
     margin-bottom: 0;
     margin-top: 0;
     color: whitesmoke;
     font-family: "LXGW WenKai Mono TC", monospace;
     font-weight: bold;
     font-style: normal;
+    width: fit-content;
   }
 
   .name-heading-dark {
@@ -345,8 +356,9 @@ span {
     justify-content: space-between;
   }
   .explore-resume-buttons {
+    padding:2px;
     height: auto;
-    width: 15vw;
+    width: 18vw;
     font-size: 12px;
   }
   .explore-title {
