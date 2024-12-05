@@ -58,8 +58,8 @@ class AboutUs extends Component {
         {
           breakpoint: 1200,
           settings: {
-            slidesToShow: 5,
-            slidesToScroll: 3,
+            slidesToShow: 3,
+            slidesToScroll: 2,
             infinite: true,
             dots: true,
           },
@@ -67,24 +67,28 @@ class AboutUs extends Component {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 1,
             infinite: true,
             dots: true,
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 780,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2,
             slidesToScroll: 1,
+            infinite: true,
+            dots: true,
           },
         },
         {
-          breakpoint: 480,
+          breakpoint: 550,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            infinite: true,
+            dots: true,
           },
         },
       ],

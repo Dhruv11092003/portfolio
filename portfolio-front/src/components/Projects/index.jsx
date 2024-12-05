@@ -21,7 +21,6 @@ class Projects extends Component {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/api/get-projects`
     );
-    console.log(JSON.stringify(response));
     if (response) {
       this.setState({ projectList: response.data, isLoading: false });
     } else {

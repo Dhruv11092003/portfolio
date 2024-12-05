@@ -57,7 +57,7 @@
     width: 90%;
     max-width: 800px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.37);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -72,7 +72,7 @@
     width: 90%;
     max-width: 800px;
     text-align: left;
-    background-color:rgb(68, 68, 68);
+    background-color:rgb(68, 68, 68,0.377);
     color:whitesmoke;
     padding: 2rem;
     border-radius: 8px;
@@ -82,7 +82,7 @@
 
 .section-title {
   font-family: "Noto Sans TC", sans-serif;
-    font-size: 1.8rem;
+    font-size: 1rem;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     color: white;
@@ -91,19 +91,26 @@
 }
 
 .work-title-light, .responsibilities-title-light {
-    font-size: 1rem;
+    font-size: 1.35rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     color: #444;
 }
+.responsibilities-title-light {
+  font-size: 1rem;
+
+}
 
 .work-title-dark, .responsibilities-title-dark {
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     color: whitesmoke;
 }
 
+.responsibilities-title-dark {
+  font-size: 1rem;
+}
 .internship-details-light {
     font-size: 1rem;
     font-style: italic;
@@ -139,12 +146,12 @@
 }
 
 .admin-button-light {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    background-color: #ff5722;
-    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    background-color: #d3d3d3;
+    color: rgb(0, 0, 0);
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -176,7 +183,7 @@
     /* max-height: 650px; */
     max-width: 700px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.37);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -188,7 +195,7 @@
     width: 90%;
     /* max-height: 650px; */
     max-width: 700px;
-    background:rgb(68, 68, 68);;
+    background:rgba(68, 68, 68, 0.377);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -207,10 +214,10 @@
   }
   
   .card-light {
-    max-height: 200px;
+    max-height: fit-content;
     max-width: 600px;
     color: black;
-    background-color:lightgray;
+    background-color:rgb(211, 211, 211,0.842);
     border: 1px solid #ced4da;
     border-radius: 8px;
     padding: 15px;
@@ -219,10 +226,10 @@
   }
   
   .card-dark {
-    max-height: 200px;
+    max-height: fit-content;
     max-width: 600px;
     color:white;
-    background-color:rgb(126, 125, 125);
+    background-color:rgb(126, 125, 125,0.486);
     /* border: 1px solid #ced4da; */
     border-radius: 8px;
     padding: 15px;
@@ -326,7 +333,7 @@
       width: 50%;
       max-width: 800px;
       text-align: left;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.37);
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -343,7 +350,7 @@
       width: 50%;
       max-width: 800px;
       text-align: left;
-      background-color:rgb(68, 68, 68);
+      background-color:rgb(68, 68, 68,0.377);
       color:whitesmoke;
       padding: 2rem;
       border-radius: 8px;
@@ -353,12 +360,13 @@
   }
   
   .education-container-light {
+    margin-left: 10px;
 height: auto;
     width: 50%;
     /* max-height: 650px; */
     max-width: 700px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.37);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -367,10 +375,11 @@ height: auto;
 
 
   .education-container-dark {
+    margin-left: 10px;
     width: 50%;
     /* max-height: 650px; */
     max-width: 700px;
-    background:rgb(68, 68, 68);;
+    background:rgb(68, 68, 68,0.377);;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -381,23 +390,25 @@ height: auto;
     height: auto;
     /* height: auto; */
     color: black;
-    background-color:lightgray;
+    background-color:rgba(211, 211, 211, 0.842);
     border: 1px solid #ced4da;
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: fit-content;
   }
   
   .card-dark {
     height: auto;
     color:white;
-    background-color:rgb(126, 125, 125);
+    background-color:rgb(126, 125, 125,0.486);
     /* border: 1px solid #ced4da; */
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: fit-content;
   }
 
   /* Each certificate card */
@@ -408,13 +419,14 @@ height: auto;
   justify-content: space-between;
   align-items: center;
   height: auto;
-  width: 60%; /* Use a percentage to adapt better within each slide */
-  max-width: 180px; /* Optional max-width for better control */
+  width: fit-content; /* Use a percentage to adapt better within each slide */
+  max-width: 210px; /* Optional max-width for better control */
   padding: 20px;
   margin: 0 15px; /* Adjust as needed */
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   transition: transform 0.2s;
+  padding: auto;
 }
   
 }
@@ -432,7 +444,7 @@ height: auto;
       width: 50%;
       max-width: 800px;
       text-align: left;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.37);
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -441,10 +453,10 @@ height: auto;
   }
   
   .card-light {
-    height: 20vh;
+    min-height: 20vh;
     /* height: auto; */
     color: black;
-    background-color:lightgray;
+    background-color:rgba(211, 211, 211, 0.842);
     border: 1px solid #ced4da;
     border-radius: 8px;
     padding: 15px;
@@ -453,9 +465,9 @@ height: auto;
   }
   
   .card-dark {
-    height: 20vh;
+    min-height: 20vh;
     color:white;
-    background-color:rgb(126, 125, 125);
+    background-color:rgba(126, 125, 125, 0.486);
     /* border: 1px solid #ced4da; */
     border-radius: 8px;
     padding: 15px;
@@ -469,7 +481,7 @@ height: auto;
       width: 50%;
       max-width: 800px;
       text-align: left;
-      background-color:rgb(68, 68, 68);
+      background-color:rgb(68, 68, 68,0.377);
       color:whitesmoke;
       padding: 2rem;
       border-radius: 8px;
@@ -481,10 +493,10 @@ height: auto;
   .education-container-light {
 
     width: 50%;
-    max-height: 750px;
+    max-height: fit-content;
     max-width: 600px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.37);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -495,10 +507,10 @@ height: auto;
 
   .education-container-dark {
     width: 50%;
-    max-height: 750px;
+    max-height: fit-content;
     max-width: 600px;
     text-align: left;
-    background:rgb(68, 68, 68);;
+    background:rgba(68, 68, 68, 0.377);;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);

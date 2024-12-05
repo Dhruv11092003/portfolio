@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC:wght@400;700&display=swap");
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+} */
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  
+}
+
+.not-found-container-light {
+  background: linear-gradient(
+    90deg,
+    rgba(160, 170, 180, 1) 0%,
+    rgba(90, 110, 140, 1) 100%
+  );
+  color: whitesmoke;
+}
+
+.not-found-container-dark {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.not-found-heading {
+  font-size: 8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-right: 3px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  font-family: "LXGW WenKai Mono TC", monospace;
+  animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.not-found-heading-light {
+  border-color: whitesmoke;
+  
+}
+
+.not-found-heading-dark {
+  border-color: whitesmoke;
+}
+
+.not-found-text {
+    font-family: "LXGW WenKai Mono TC", monospace;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.not-found-link {
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  border: 2px solid whitesmoke;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "LXGW WenKai Mono TC", monospace;
+}
+
+.not-found-link-light {
+  color: whitesmoke;
+  
+  background-color: transparent;
+}
+
+.not-found-link-light:hover {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.not-found-link-dark {
+  color: whitesmoke;
+  background-color: transparent;
+}
+
+.not-found-link-dark:hover {
+  background-color: whitesmoke;
+  color: black;
+}

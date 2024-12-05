@@ -79,7 +79,7 @@ class AdminPanel extends Component {
           }
         }
       );
-      if (response.status === 200) {
+      if (response.status === 201) {
         alert("Upload successful!");
       }
     } catch (error) {
@@ -175,7 +175,7 @@ class AdminPanel extends Component {
                 value={projectData.githubLink}
                 onChange={this.handleProjectChange}
                 placeholder="GitHub Link"
-                required
+                
               />
               <input
                 type="text"
@@ -183,7 +183,7 @@ class AdminPanel extends Component {
                 value={projectData.publishLink}
                 onChange={this.handleProjectChange}
                 placeholder="Publish Link"
-                required
+                
               />
               <input
                 type="text"
@@ -191,7 +191,7 @@ class AdminPanel extends Component {
                 value={projectData.projectImagesLink}
                 onChange={this.handleProjectChange}
                 placeholder="Project Images Link (comma separated)"
-                required
+                
               />
               <textarea
                 name="projectDescription"

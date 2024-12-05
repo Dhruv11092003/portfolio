@@ -145,7 +145,7 @@ class Home extends Component {
                       <ProgressBar
                         completed={each.level}
                         customLabel={each.label}
-                        bgColor="#daa520"
+                        bgColor="darkgrey"
                         height={20}
                         width={115}
                         labelSize={10}
