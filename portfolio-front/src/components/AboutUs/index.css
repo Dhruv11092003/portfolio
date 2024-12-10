@@ -1,6 +1,7 @@
 
 .background-light {
     min-height: 100vh;
+    height: auto;
     width: 100%;
     background: rgb(160, 170, 180);
     background: linear-gradient(
@@ -38,6 +39,7 @@
 
 
 .background-dark {
+  height: auto;
     min-height: 100vh;
     width: 100%;
     background-color: #000000;
