@@ -35,7 +35,7 @@ const skills = [
 class Home extends Component {
   downloadResume = () => {
     window.open(
-      "https://drive.google.com/file/d/1Y56zWQTIxtSQLQ6ztE4uQIye2tz2aHGg/view?usp=drive_link"
+      "https://drive.google.com/file/d/1hGWsQ7TzhaDURHd7PSbH2piN0cH0_xtY/view?usp=sharing"
     );
   };
 
