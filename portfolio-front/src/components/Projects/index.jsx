@@ -1,89 +1,153 @@
-import { Component } from "react";
-import Header from "../Header";
-import axios from "axios";
-import Loader from "react-loader-spinner";
-// import dotenv from 'dotenv'
+import Slider from "react-slick";
 import "./index.css";
+import Loader from "react-loader-spinner";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { motion } from "framer-motion";
 
-class Projects extends Component {
-  state = {
-    projectList: [],
-    isLoading: true,
-    error: false,
+const Projects = () => {
+  const [error, setError] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+  const [projectList, setProjectList] = useState([]);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    speed: 800,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
   };
 
-  componentDidMount() {
-    this.getProjects();
-  }
+  useEffect(() => {
+    const getProjects = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/get-projects`,
+          {
+            headers: { Accept: "application/json" },
+          }
+        );
 
-  getProjects = async () => {
-    try{
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/get-projects`
-    );
-    if (response) {
-      this.setState({ projectList: response.data, isLoading: false });
-    } else {
-      this.setState({ isLoading: false, error: true });
-    }
-}catch(e){
-    this.setState({ isLoading: false, error: true });
-}
-  };
+        if (response.status === 200) {
+          setProjectList(response.data);
+        } else {
+          setError(true);
+        }
+      } catch (e) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  render() {
-    const { changeTheme } = this.props;
-    const { isLoading, projectList, error } = this.state;
-    const { theme } = changeTheme;
-    return (
-      <div className="project-top-container">
-        <Header changeTheme={changeTheme} />
-        <div className={`project-container-${theme}`}>
-          <h1 className={`heading-container-${theme}`}>Projects</h1>
-          {isLoading ? (
-            <center>
-              <div>
-                <Loader type="ThreeDots" height={50} width={50} color="#ffffff"/>
-              </div>
-            </center>
-          ) : error ? (
-            <center>
-            <h1 className="project-heading" style={{"margin-top":"10%"}}>Error Fetching Projects</h1>
-            </center>
-          ) : (
-            projectList.length===0?(<center><h1 className="project-heading" style={{"margin-top":"10%"}}>No Projects To Show!!</h1></center>):(
-            <ul className={`project-card-container-${theme}`}>
-              {projectList.map((each) => (
-                <li key={each._id}>
-                  <div className={`project-card-${theme}`}>
-                  <div className={`project-card-items-${theme}`}>
+    getProjects();
+  }, []);
+
+  return (
+    <div
+      style={{ backgroundColor: "black", padding: "20px" }}
+      className="projects-container "
+      id="Projects"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50 }} // Start slightly lower with 0 opacity
+        whileInView={{ opacity: 1, y: 0 }} // Slide up when in view
+        viewport={{ once: false, amount: 0.2 }} // Animates when 20% of it is visible
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h1 className="section-title">Projects</h1>
+        {isLoading ? (
+          <center>
+            <Loader height={80} width={80} />
+          </center>
+        ) : error ? (
+          <h1 className="error-heading">Error Fetching Projects!!!</h1>
+        ) : projectList.length > 0 ? (
+          <Slider {...settings}>
+            {projectList.map((each) => (
+              <center key={each._id}>
+                <div className="project-list-item">
+                  <div>
                     <h1 className="project-heading">{each.projectName}</h1>
-                    <p className="project-para">{each.technologiesUsed[0]}</p>
-                 <div style={{"display":"flex","flexDirection":"column","alignItems":"center"}}>
-                  {each.githubLink.length > 0 ? (
-                    <a href={each.githubLink} target="blank" className="anchors">Github Link</a>
-                  ) : (
-                    ""
-                  )}
-                  {each.publishLink.length > 0 ? (
-                    <a href={each.publishLink} target="blank" className="anchors">Published Link</a>
-                  ) : (
-                    ""
-                  )}
+                    <p className="project-techStack">
+                      {each.technologiesUsed.join(", ")}
+                    </p>
+                    <p className="project-description">
+                      {each.projectDescription}
+                    </p>
+                    <div className="project-links">
+                      {each.githubLink && (
+                        <a
+                          href={each.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          GitHub Link
+                        </a>
+                      )}
+                      {each.publishLink && (
+                        <a
+                          href={each.publishLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Published Link
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  </div>
-                  <p className="project-para">{each.projectDescription}</p>
-                  </div>
-                </li>
-                
-              ))}
-            </ul>
-            )
-          )}
-        </div>
-      </div>
-    );
-  }
-}
+                </div>
+              </center>
+            ))}
+          </Slider>
+        ) : (
+          <h1 className="section-title">No Projects To Show Up!!!</h1>
+        )}
+      </motion.div>
+    </div>
+  );
+};
 
 export default Projects;

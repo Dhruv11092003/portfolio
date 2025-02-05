@@ -4,6 +4,7 @@ import Switch from "react-switch";
 import { RxCrossCircled } from "react-icons/rx";
 import { FaBars } from "react-icons/fa";
 import LinkContext from "../../context/activeLinkContext";
+import { motion } from "framer-motion";
 import "./index.css";
 
 class Header extends Component {
@@ -18,93 +19,105 @@ class Header extends Component {
 
   render() {
     const { changeTheme } = this.props;
-    const { main, theme, isChecked } = changeTheme;
+    const { theme } = changeTheme;
     const { navSmallOpen } = this.state;
-    // console.log(theme)
+    console.log(this.props);
     return !navSmallOpen ? (
-      <nav className={`navbar navbar-${theme}`}>
-        <div className={`theme-container-${theme}`}>
-          <label style={{"font-size":"10px","marginBottom":"5px"}}>Light Mode</label>
-          <Switch onChange={main} checked={isChecked} height={20} width={40} />
+      <div className="navbar-container">
+        <div className="navback">
+          <nav className={`navbar navbar-${theme}`}>
+            <FaBars
+              onClick={this.toggleNavbar}
+              className={`nav-icon-bars-${theme}`}
+            />
+            <LinkContext.Consumer>
+              {(value) => {
+                const { activeLink, setLink } = value;
+                const setActiveLink = (link) => {
+                  setLink(link);
+                };
+                return (
+                  <div className="anchors-container-lg">
+                    <a
+                      href="/"
+                      className={
+                        activeLink === "/"
+                          ? `active-link-${theme} anchors-${theme}`
+                          : `anchors-${theme}`
+                      }
+                      onClick={() => setActiveLink("/")}
+                    >
+                      HOME
+                    </a>
+                    <a
+                      href="#journey"
+                      className={
+                        activeLink === "/#AboutMe"
+                          ? `active-link-${theme} anchors-${theme}`
+                          : `anchors-${theme}`
+                      }
+                      onClick={() => setActiveLink("/#journey")}
+                    >
+                      JOURNEY
+                    </a>
+                    <a
+                      href="#Projects"
+                      className={
+                        activeLink === "/#Projects"
+                          ? `active-link-${theme} anchors-${theme}`
+                          : `anchors-${theme}`
+                      }
+                      onClick={() => setActiveLink("/#Projects")}
+                    >
+                      PROJECTS
+                    </a>
+                    <a
+                      href="#certifications"
+                      className={`anchors-${theme}`}
+                      onClick={() => setActiveLink("/#certifications")}
+                    >
+                      CERTIFICATIONS
+                    </a>
+                    <a
+                      href="#contactMe"
+                      className={`anchors-${theme}`}
+                      onClick={() => setActiveLink("/#contactMe")}
+                    >
+                      CONTACT
+                    </a>
+                  </div>
+                );
+              }}
+            </LinkContext.Consumer>
+          </nav>
         </div>
-
-        <FaBars
-          onClick={this.toggleNavbar}
-          className={`nav-icon-bars-${theme}`}
-        />
-        <LinkContext.Consumer>
-          {(value) => {
-            const { activeLink, setLink } = value;
-            const setActiveLink = (link) => {
-              setLink(link);
-            };
-            return (
-              <div className="anchors-container-lg">
-                <Link
-                  to="/"
-                  className={
-                    activeLink === "/"
-                      ? `active-link-${theme} anchors-${theme}`
-                      : `anchors-${theme}`
-                  }
-                  onClick={()=>setActiveLink("/")}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/AboutMe"
-                  className={
-                    activeLink === "/AboutMe"
-                      ? `active-link-${theme} anchors-${theme}`
-                      : `anchors-${theme}`
-                  }
-                  onClick={()=>setActiveLink("/AboutMe")}
-                >
-                  About Me
-                </Link>
-                <Link
-                  to="/Projects"
-                  className={
-                    activeLink === "/Projects"
-                      ? `active-link-${theme} anchors-${theme}`
-                      : `anchors-${theme}`
-                  }
-                  onClick={()=>setActiveLink("/Projects")}
-                >
-                  Projects
-                </Link>
-                <Link to="/#contactMe" className={`anchors-${theme}`} onClick={()=>setActiveLink("/")}>
-                  Contact Me
-                </Link>
-              </div>
-            );
-          }}
-        </LinkContext.Consumer>
-      </nav>
+      </div>
     ) : (
-      <nav className={`navbar-open-sm-${theme}`}>
-        <RxCrossCircled
-          onClick={this.toggleNavbar}
-          className={`nav-icon-cross-${theme}`}
-        />
-        <div className="anchors-container-sm">
-          <Link to="/" className={`anchors-${theme}`}>
-            Home
-          </Link>
-          <hr className={`hr-line-${theme}`} />
-          <Link to="/AboutMe" className={`anchors-${theme}`}>
-            About Me
-          </Link>
-          <hr className={`hr-line-${theme}`} />
-          <Link to="/Projects" className={`anchors-${theme}`}>
-            Projects
-          </Link>
-          <hr className={`hr-line-${theme}`} />
-          <Link to="/#contactMe" className={`anchors-${theme}`}>
-            Contact Me
-          </Link>
-        </div>
-      </nav>
+      <div className="navbar-container">
+        <nav className={`navbar-open-sm-${theme}`}>
+          <RxCrossCircled
+            onClick={this.toggleNavbar}
+            className={`nav-icon-cross-${theme}`}
+          />
+          <div className="anchors-container-sm">
+            <a href="/" className={`anchors-${theme}`}>
+              HOME
+            </a>
+            <hr className={`hr-line-${theme}`} />
+            <a href="/#journey" className={`anchors-${theme}`}>
+              JOURNEY
+            </a>
+            <hr className={`hr-line-${theme}`} />
+            <a href="/#Projects" className={`anchors-${theme}`}>
+              PROJECTS
+            </a>
+            <hr className={`hr-line-${theme}`} />
+            <a href="/#contactMe" className={`anchors-${theme}`}>
+              CONTACT
+            </a>
+          </div>
+        </nav>
+      </div>
     );
   }
 }
