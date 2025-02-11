@@ -17,9 +17,9 @@
   letter-spacing: 5px;
   background-clip: padding-box;
   background: linear-gradient(
-    180deg,
-    rgba(240, 154, 26, 0.87),
-    rgba(255, 105, 180, 0.8)
+    45deg,
+    rgba(255, 153, 0, 0.87),
+    rgba(255, 0, 128, 0.8)
   );
   -webkit-background-clip: text;
   color: transparent;

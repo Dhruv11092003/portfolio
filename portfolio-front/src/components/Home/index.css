@@ -74,7 +74,7 @@ main-container{
 
 .intro-para-dark {
   font-size: 18px;
-  color: whitesmoke;
+  color: rgb(245, 245, 245);
   font-family: "LXGW WenKai Mono TC", monospace;
   font-weight: bold;
   font-style: normal;
@@ -204,9 +204,9 @@ main-container{
 span {
   background-clip: border-box;
   background: linear-gradient(
-    180deg,
-    rgba(240, 154, 26, 0.87),
-    rgba(255, 105, 180, 0.8)
+    306deg,
+    rgb(209, 255, 2),
+    rgba(114, 206, 243, 0.945)
   );
   -webkit-background-clip: text;
   color: transparent;
