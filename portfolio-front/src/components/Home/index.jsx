@@ -32,7 +32,7 @@ class Home extends Component {
     return (
       <div className="main-container">
         <Header changeTheme={changeTheme} />
-        <div className="home-container">
+        <div className="home-container"  id="home">
           <motion.div
             initial={{ opacity: 0, y: 50 }} // Start slightly lower with 0 opacity
             whileInView={{ opacity: 1, y: 0 }} // Slide up when in view
