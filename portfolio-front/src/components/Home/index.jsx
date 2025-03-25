@@ -47,7 +47,7 @@ class Home extends Component {
               transition={{ duration: 1 }}
             >
               <motion.img
-                src="main-img.png"
+                src="e-pfp.png"
                 alt="Dhruv Kulshrestha"
                 className="profileImg"
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -78,7 +78,7 @@ class Home extends Component {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  I'm Into <span>Full Stack Development</span>
+                  I'm Into Full Stack Development
                 </motion.p>
                 <div className="explore-container">
                   <button
@@ -87,7 +87,7 @@ class Home extends Component {
                   >
                     Download Resume <IoMdDownload className="icons" />
                   </button>
-                  <a href="#AboutMe" className="explore-title">
+                  <a href="#tech-stack" className="explore-title">
                     Explore <LiaWpexplorer className="icons" />
                   </a>
                 </div>

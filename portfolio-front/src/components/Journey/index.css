@@ -3,54 +3,21 @@
 .timeline-container {
   padding: 1rem 1rem;
   background-color: #000000;
+  
 }
 
 /* Timeline Elements */
 .timeline-element .vertical-timeline-element-content {
-  background-color: rgb(54, 54, 54);
+  background-color: rgba(54, 54, 54, 0.26);
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   padding: 10px;
   transition: transform 0.3s ease-in-out;
+  border:1px solid rgba(255, 255, 255, 0.384);
 }
 
-/* Border Animation */
-.timeline-element .vertical-timeline-element-content::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(120deg, rgba(240, 154, 26), rgba(255, 105, 180));
-  z-index: -1;
-  border-radius: 20px;
-  padding: 2px;
-  opacity: 0;
-  animation: borderGlow 3s infinite alternate;
-}
-
-/* Keyframes for Border Animation */
-@keyframes borderGlow {
-  0% {
-    opacity: 0.1;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-.timeline-element .vertical-timeline-element-content:hover {
-  transform: scale(1.03);
-}
 
 .timeline-title {
   font-size: 1rem;
@@ -71,7 +38,7 @@
 
 /* Timeline Icons */
 .timeline-icon {
-  background: linear-gradient(180deg, rgba(240, 154, 26), rgba(255, 105, 180)) !important;
+  background: linear-gradient(180deg, rgb(253, 189, 93), rgba(255, 0, 0, 0.938)) !important;
   color: #fff !important;
   box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
 }

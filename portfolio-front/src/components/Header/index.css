@@ -55,10 +55,10 @@ z-index: 1;
 
 .navback {
   background: linear-gradient(
-    60deg,
-    hsl(224, 85%, 66%),
-    hsl(269, 85%, 66%),
-    hsl(314, 85%, 66%),
+    150deg,
+    /* hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%), */
+    /* hsl(314, 85%, 66%), */
     hsl(359, 85%, 66%),
     hsl(44, 85%, 66%),
     hsl(89, 85%, 66%),
@@ -70,7 +70,7 @@ z-index: 1;
   padding: 3px;
   border-radius: 50px;
   position: relative;
-  animation: rotate-bg 3s linear infinite; /* Added duration and timing */
+  /* animation: rotate-bg 3s linear infinite; Added duration and timing */
 }
 
 

@@ -27,7 +27,7 @@ const TechStack = () => {
   ];
 
   return (
-    <div className="stack-container">
+    <div className="stack-container" id="tech-stack">
       <motion.div
         initial={{ opacity: 0, y: 50 }} // Start slightly lower with 0 opacity
         whileInView={{ opacity: 1, y: 0 }} // Slide up when in view
