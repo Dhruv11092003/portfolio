@@ -1,349 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Prociono&display=swap');
-
-
-/* Define the style for the active link */
-.active-link-light {
-  height: auto;
-  padding: 0px 5px 5px 5px ;
-  border-bottom: 4px solid grey;
- 
+.header-shell {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(8, 10, 20, 0.72);
+  border-bottom: 1px solid rgba(120, 127, 255, 0.22);
 }
 
-.active-link-dark {
-  height: auto;
-  padding: 0px 5px 5px 5px ;
-  border-bottom: 4px solid white;
-  
- 
-}
-
-.navbar-container{
+.header-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 72px;
+  padding: 0 1rem;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-position: fixed;
-width: 100%;
-margin-top:10px;
-z-index: 1;
+  justify-content: space-between;
 }
 
-.navbar {
+.brand-mark { color: #eef0ff; font-weight: 800; letter-spacing: 0.1em; text-decoration: none; }
+.menu-btn { display: none; background: transparent; border: 0; color: #fff; font-size: 1.2rem; }
+.nav-links { display: flex; align-items: center; gap: 1rem; }
+.nav-link { color: #9aa5d1; text-decoration: none; transition: all .2s ease; }
+.nav-link:hover, .nav-link.active { color: #fff; text-shadow: 0 0 14px rgba(123, 180, 255, 0.5); }
+.theme-btn { border: 1px solid rgba(157,170,255,.3); background: rgba(45,54,102,.3); color: #d6dcff; border-radius: 999px; width: 34px; height: 34px; }
 
-  overflow: hidden;
-  padding: 10px;
-  min-height: 3vh;
-  /* border: 1px solid black; */
-  min-width: 80vw;
-  height:4vh;
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  /* box-shadow: 0px 2px 16px 0px rgb(165, 165, 165); */ 
-  top:0%;
-z-index: 1;
-
-  margin-top: 0%;
-  align-self:center;
-  border-radius:50px;
-  background-color: rgba(0, 0, 0, 0.877);
-
-}
-
-.navback {
-  background: linear-gradient(
-    150deg,
-    /* hsl(224, 85%, 66%),
-    hsl(269, 85%, 66%), */
-    /* hsl(314, 85%, 66%), */
-    hsl(359, 85%, 66%),
-    hsl(44, 85%, 66%),
-    hsl(89, 85%, 66%),
-    hsl(134, 85%, 66%),
-    hsl(179, 85%, 66%)
-  );
-  z-index: 1;
-  background-size: 300% 300%;
-  padding: 3px;
-  border-radius: 50px;
-  position: relative;
-  /* animation: rotate-bg 3s linear infinite; Added duration and timing */
-}
-
-
-@keyframes rotate-bg {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-.anchors-container-lg {
-  display: none;
-}
-
-.anchors-container-sm {
-  /* padding: 2%; */
-  height: 25vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding-left: 10%;
-}
-
-
-.nav-icon-bars-dark {
-  /* align-self: flex-end; */
-  color: white;
-  font-size: 24px;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-.nav-icon-cross-dark {
-  color: white;
-  align-self: flex-start;
-  font-size: 24px;
-  margin: 2%;
-  order: 1;
-  /* margin-right: 2%; */
-}
-
-.theme-container-light {
-  margin-left: 2%;
-  width: 25%;
-  /* margin: 0px; */
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.theme-container-dark {
-  margin-left: 2%;
-  color: white;
-  width: 25%;
-  /* margin: 0px; */
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.main-heading-light {
-  font-family: "Londrina Sketch", sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  margin-right: 10vw;
-  font-size: 28px;
-
-}
-
-.navbar-open-sm-light {
-  height: 30vh;
-  padding: 1%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: whitesmoke;
-  /* box-shadow: 0px 1px 2px 0px white; */
-  position: sticky;  
-  top:0%;
-  z-index: 1;
-}
-
-.main-heading-dark {
-  font-family: "Londrina Sketch", sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  margin-right: 10vw;
-  font-size: 28px;
-  color: white;
-}
-
-.navbar-open-sm-dark {
-  height: 30vh;
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* background-color: grey; */
-  /* box-shadow: 0px 1px 15px 0px rgb(197, 197, 197); */
-  position: sticky;  
-  top:0%;
-  z-index: 1;
-  background-color:rgba(0, 0, 0, 0.418);
-  border:1px solid rgb(66, 66, 66);
-  border-radius: 20px;
-}
-
-.anchors-light {
-  font-size: 18px;
-  color: black;
-  text-decoration: none;
-  /* font-family: "Prociono", serif; */
-  font-weight: 400;
-  font-style: normal;
-}
-
-.hr-line-light {
-    border: none;
-  height: 0.5vh;
-  width: 50%;
-  background-color: black;
-  margin-bottom: 3%;
-}
-
-.anchors-dark {
-  font-size: 14px;
-  color: white;
-  text-decoration: none;
-  
-}
-
-.hr-line-dark {
-  border: none;
-  height: 0.5vh;
-  width: 70%;
-  background-color: rgba(245, 245, 245, 0.493);
-  margin-bottom: 3%;
-}
-
-@media screen and (min-width: 700px) and (max-width: 1200px) {
-    .navbar {
-        height: 5vh;
-        position: sticky;
-        top:0%;
-        padding:1% 0% 1% 0%;
-        justify-content: center;
-      }
-      .anchors-container-lg {
-        display: flex;
-        justify-content: space-evenly;
-        width: 50vw;
-        margin-right: 1%;
-      }
-      .anchors-light {
-        font-size: 18px;
-        color: black;
-        text-decoration: none;
-      }
-      .anchors-dark {
-        font-size: 14px;
-        color:white;
-        text-decoration: none;
-      }
-      .main-heading-light {
-        display: none;
-      }
-      .main-heading-dark {
-        display: none;
-      }
-      .anchors-container-sm {
-        display: none;
-      }
-    
-      .nav-icon-bars-dark {
-        display: none;
-      }
-    
-      .nav-icon-bars-light {
-        display: none;
-      }
-      .theme-container-light {
-        width: 25%;
-        margin-left: 1%;
-        font-size: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-      }
-      
-      .theme-container-dark {
-        color: white;
-        width: 25%;
-        margin-left: 1%;
-        font-size: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-      }
-}
-
-@media screen and (min-width: 1201px) {
-  .navbar {
-    height: 3vh;
-    position: sticky;
-    top:0%;
-    padding:1% 0% 1% 0%;
-    justify-content: center;
-  }
-  .anchors-container-lg {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50vw;
-    margin-right: 1%;
-  }
-  .anchors-light {
-    font-size: 18px;
-    color: black;
-    text-decoration: none;
-  }
-  .anchors-dark {
-    font-size: 14px;
-    color:white;
-    text-decoration: none;
-  }
-  .main-heading-light {
-    display: none;
-  }
-  .main-heading-dark {
-    display: none;
-  }
-  .anchors-container-sm {
-    display: none;
-  }
-
-  .nav-icon-bars-dark {
-    display: none;
-  }
-
-  .nav-icon-bars-light {
-    display: none;
-  }
-  .theme-container-light {
-    width: 25%;
-    margin-left: 1%;
-    font-size: 12px;
-    display: flex;
+@media (max-width: 820px) {
+  .menu-btn { display: block; }
+  .nav-links {
+    position: absolute;
+    top: 72px;
+    right: 0;
+    background: rgba(7, 9, 20, 0.95);
+    border-left: 1px solid rgba(141, 155, 255, 0.3);
+    border-bottom: 1px solid rgba(141, 155, 255, 0.3);
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
+    padding: 1rem;
+    min-width: 210px;
+    transform: translateX(100%);
+    transition: transform .25s ease;
   }
-  
-  .theme-container-dark {
-    color: white;
-    width: 25%;
-    margin-left: 1%;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
+  .nav-links.open { transform: translateX(0%); }
 }
