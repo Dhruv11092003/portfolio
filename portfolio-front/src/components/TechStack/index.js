@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./index.css";
 
 const stack = [
   { id: 1, name: "HTML", imgUrl: "./stack/html.jpg" },
