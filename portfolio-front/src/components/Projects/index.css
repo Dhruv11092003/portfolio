@@ -1,9 +1,0 @@
-.slider-item-wrap { padding: .3rem .5rem; }
-.project-card { min-height: 250px; padding: 1rem; margin: .2rem; }
-.project-card h3 { margin-top: 0; }
-.project-card .meta { color: #aeb8ea; font-size: .9rem; }
-.project-card p { color: #d9deff; }
-.card-links { display: flex; gap: .8rem; margin-top: .8rem; }
-.card-links a { color: #9fc4ff; text-decoration: none; }
-.card-links a:hover { color: #fff; }
-.error-heading { color: #ff9090; text-align: center; }

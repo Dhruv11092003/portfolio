@@ -1,7 +1,0 @@
-.journey-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.journey-card { padding: 1rem; }
-.journey-title { display: flex; align-items: center; gap: .6rem; }
-.journey-title span { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: rgba(139,152,255,.25); }
-.journey-card img { width: 100%; max-height: 150px; object-fit: cover; border-radius: 10px; margin: .7rem 0; }
-.journey-card ul { margin: 0; padding-left: 1rem; color: #d0d7fd; }
-.journey-card li { margin-bottom: .4rem; }
