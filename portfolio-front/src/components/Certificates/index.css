@@ -1,0 +1,8 @@
+.slider-item-wrap { padding: .3rem .5rem; }
+.certificate-card { min-height: 230px; padding: 1rem; margin: .2rem; }
+.certificate-card h3 { margin-top: 0; }
+.certificate-card .meta { color: #aeb8ea; font-size: .9rem; }
+.certificate-card p { color: #d9deff; }
+.certificate-card a { color: #9fc4ff; text-decoration: none; }
+.certificate-card a:hover { color: #fff; }
+.error-heading { color: #ff9090; text-align: center; }
