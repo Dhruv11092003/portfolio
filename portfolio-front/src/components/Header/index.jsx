@@ -1,141 +1,51 @@
-import { useState, useEffect, useContext } from "react";
-// import { Link } from "react-router-dom";
-import { RxCrossCircled } from "react-icons/rx";
-import { FaBars } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { FaBars, FaMoon, FaTimes } from "react-icons/fa";
 import LinkContext from "../../context/activeLinkContext";
+import useScrollSpy from "../../hooks/useScrollSpy";
 import "./index.css";
 
+const navItems = [
+  { label: "Home", href: "/", id: "home" },
+  { label: "Journey", href: "/#journey", id: "journey" },
+  { label: "Projects", href: "/#Projects", id: "Projects" },
+  { label: "Certifications", href: "/#certifications", id: "certifications" },
+  { label: "Contact", href: "/#contactMe", id: "contactMe" },
+];
+
 const Header = ({ changeTheme }) => {
-  const [navSmallOpen, setNavSmallOpen] = useState(false);
-  const { theme } = changeTheme;
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const { activeLink, setLink } = useContext(LinkContext);
 
-  const toggleNavbar = () => {
-    setNavSmallOpen((prev) => !prev);
-  };
+  useScrollSpy(navItems, setLink);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        { id: "/", ref: document.getElementById("home") },
-        { id: "/#journey", ref: document.getElementById("journey") },
-        { id: "/#Projects", ref: document.getElementById("Projects") },
-        {
-          id: "/#certifications",
-          ref: document.getElementById("certifications"),
-        },
-        { id: "/#contactMe", ref: document.getElementById("contactMe") },
-      ];
+  return (
+    <header className="header-shell">
+      <nav className="header-nav">
+        <a href="/" className="brand-mark">
+          DK
+        </a>
 
-      for (let section of sections) {
-        if (section.ref) {
-          const { top, bottom } = section.ref.getBoundingClientRect();
-          if (
-            top <= window.innerHeight / 2 &&
-            bottom >= window.innerHeight / 2
-          ) {
-            setLink(section.id);
-            break;
-          }
-        }
-      }
-    };
+        <button className="menu-btn" onClick={() => setMenuOpen((prev) => !prev)}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [setLink]);
-
-  return !navSmallOpen ? (
-    <div className="navbar-container">
-      <div className="navback">
-        <nav className={`navbar navbar-${theme}`}>
-          <FaBars onClick={toggleNavbar} className={`nav-icon-bars-${theme}`} />
-          <div className="anchors-container-lg">
+        <div className={`nav-links ${isMenuOpen ? "open" : ""}`}>
+          {navItems.map((item) => (
             <a
-              href="/"
-              className={
-    
-                activeLink === "/"
-                  ? `active-link-${theme} anchors-${theme}`
-                  : `anchors-${theme}`
-              }
+              key={item.href}
+              href={item.href}
+              className={activeLink === item.href ? "nav-link active" : "nav-link"}
+              onClick={() => setMenuOpen(false)}
             >
-              HOME
+              {item.label}
             </a>
-            <a
-              href="/#journey"
-              className={
-                activeLink === "/#journey"
-                  ? `active-link-${theme} anchors-${theme}`
-                  : `anchors-${theme}`
-              }
-            >
-              JOURNEY
-            </a>
-            <a
-              href="/#Projects"
-              className={
-                activeLink === "/#Projects"
-                  ? `active-link-${theme} anchors-${theme}`
-                  : `anchors-${theme}`
-              }
-            >
-              PROJECTS
-            </a>
-            <a
-              href="/#certifications"
-              className={
-                activeLink === "/#certifications"
-                  ? `active-link-${theme} anchors-${theme}`
-                  : `anchors-${theme}`
-              }
-            >
-              CERTIFICATIONS
-            </a>
-            <a
-              href="/#contactMe"
-              className={
-                activeLink === "/#contactMe"
-                  ? `active-link-${theme} anchors-${theme}`
-                  : `anchors-${theme}`
-              }
-            >
-              CONTACT
-            </a>
-          </div>
-        </nav>
-      </div>
-    </div>
-  ) : (
-    <div className="navbar-container">
-      <nav className={`navbar-open-sm-${theme}`}>
-        <RxCrossCircled
-          onClick={toggleNavbar}
-          className={`nav-icon-cross-${theme}`}
-        />
-        <div className="anchors-container-sm">
-          <a href="/" className={`anchors-${theme}`}>
-            HOME
-          </a>
-          <hr className={`hr-line-${theme}`} />
-          <a href="/#journey" className={`anchors-${theme}`}>
-            JOURNEY
-          </a>
-          <hr className={`hr-line-${theme}`} />
-          <a href="/#Projects" className={`anchors-${theme}`}>
-            PROJECTS
-          </a>
-          <hr className={`hr-line-${theme}`} />
-          <a href="/#certifications" className={`anchors-${theme}`}>
-            CERTIFICATIONS
-          </a>
-          <hr className={`hr-line-${theme}`} />
-          <a href="/#contactMe" className={`anchors-${theme}`}>
-            CONTACT
-          </a>
+          ))}
+          <button className="theme-btn" onClick={changeTheme.main} title="Toggle theme">
+            <FaMoon />
+          </button>
         </div>
       </nav>
-    </div>
+    </header>
   );
 };
 
