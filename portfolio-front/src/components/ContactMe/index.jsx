@@ -37,7 +37,7 @@ const ContactMe = () => {
         alert("Request Sent Successfully");
         setForm(initialFormState);
       }
-    } catch (error) {
+    } catch {
       alert("Something Went Wrong");
     }
   };

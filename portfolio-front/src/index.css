@@ -10,29 +10,16 @@
   }
 
   body {
-    @apply m-0 bg-slate-50 font-body text-slate-900 antialiased dark:bg-[#04050B] dark:text-slate-100;
+    @apply m-0 bg-white font-body text-slate-900 antialiased dark:bg-[#05070D] dark:text-slate-100;
   }
 }
 
 @layer components {
+  .glass {
+    @apply border border-white/15 bg-white/10 backdrop-blur-xl dark:bg-white/5;
+  }
+
   .section-wrap {
     @apply mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8;
-  }
-
-  .glass {
-    @apply border border-slate-200/70 bg-white/75 backdrop-blur-xl dark:border-white/15 dark:bg-white/5;
-  }
-
-  .bento-card {
-    @apply glass rounded-3xl p-5 shadow-[0_16px_45px_-28px_rgba(37,99,235,.6)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_65px_-30px_rgba(124,58,237,.9)];
-  }
-
-  .neon-ring {
-    @apply relative overflow-hidden;
-  }
-
-  .neon-ring::before {
-    content: "";
-    @apply pointer-events-none absolute -inset-20 bg-[radial-gradient(circle,rgba(124,58,237,.28),transparent_50%)];
   }
 }

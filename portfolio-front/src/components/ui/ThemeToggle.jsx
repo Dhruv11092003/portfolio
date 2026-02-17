@@ -8,10 +8,10 @@ const ThemeToggle = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className="glass inline-flex h-10 w-10 items-center justify-center rounded-full text-sm text-slate-700 transition hover:scale-105 dark:text-yellow-300"
+      className="glass inline-flex h-10 w-10 items-center justify-center rounded-full text-sm text-slate-200 transition hover:scale-105 dark:text-slate-100"
       aria-label="Toggle theme"
     >
-      {isDark ? <FaSun /> : <FaMoon />}
+      {isDark ? <FaSun /> : <FaMoon className="text-slate-700" />}
     </button>
   );
 };
