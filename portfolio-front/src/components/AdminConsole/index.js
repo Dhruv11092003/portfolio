@@ -9,8 +9,9 @@ class AdminConsole extends Component {
   state = {
     username: "",
     password: "",
-    isEmpty: false,
-    redirectToAdminPanel: false, 
+    errorMessage: "",
+    isLoading: false,
+    redirectToAdminPanel: false,
   };
 
   setUsername = (e) => {
@@ -21,36 +22,47 @@ class AdminConsole extends Component {
     this.setState({ password: e.target.value });
   };
 
-  sendData = async (data) => {
+  submitForm = async (e) => {
+    e.preventDefault();
+    const { username, password } = this.state;
+
+    if (!username.trim() || !password.trim()) {
+      this.setState({ errorMessage: "Username and password are required." });
+      return;
+    }
+
+    this.setState({ isLoading: true, errorMessage: "" });
+
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/adminLogin`,
-        data
+        { adminName: username, password }
       );
+
       if (response.status === 200) {
-        Cookies.set("jwt_token", response.data.jwtToken);
-        this.setState({ redirectToAdminPanel: true }); 
-      } else {
-        console.log(response.status);
+        Cookies.set("jwt_token", response.data.jwtToken, {
+          expires: 1,
+        });
+        this.setState({ redirectToAdminPanel: true });
       }
     } catch (error) {
-      console.error("Login failed:", error);
-    }
-  };
-
-  submitForm = (e) => {
-    e.preventDefault();
-    const { username, password } = this.state;
-    if (username === "" || password === "") {
-      this.setState({ isEmpty: true });
-    } else {
-      const payload = { adminName: username, password: password };
-      this.sendData(payload);
+      this.setState({
+        errorMessage: "Invalid credentials or server error.",
+      });
+    } finally {
+      this.setState({ isLoading: false });
     }
   };
 
   render() {
-    const { username, password, isEmpty, redirectToAdminPanel } = this.state;
+    const {
+      username,
+      password,
+      errorMessage,
+      isLoading,
+      redirectToAdminPanel,
+    } = this.state;
+
     const { changeTheme } = this.props;
     const { theme } = changeTheme;
 
@@ -61,45 +73,64 @@ class AdminConsole extends Component {
     return (
       <div>
         <Header changeTheme={changeTheme} />
+
         <div
           className={`admin-console-wrapper ${
             theme === "light" ? "theme-light" : "theme-dark"
           }`}
         >
-          <h1 className="heading-console">Admin Console</h1>
-          <form onSubmit={this.submitForm} className="console-form">
-            <div className="form-field">
-              <input
-                value={username}
-                id="username"
-                placeholder="Enter Username"
-                onChange={this.setUsername}
-                className="input-console"
-                required
-              />
-            </div>
-            <div className="form-field">
-              <input
-              type="password"
-                value={password}
-                id="password"
-                onChange={this.setPassword}
-                required
-                className="input-console"
-                placeholder="Enter Password"
-              />
-            </div>
-            {isEmpty && (
-              <p className="error-message-console">
-                Please fill the required details
-              </p>
-            )}
-            <div className="button-container-console">
-              <button type="submit" className="submit-btn-console">
-                Login
-              </button>
-            </div>
-          </form>
+          <div className="admin-card">
+            <h1 className="heading-console">Admin Login</h1>
+            <p className="subtext-console">
+              Secure access to the administration panel.
+            </p>
+
+            <form onSubmit={this.submitForm} className="console-form">
+              <div className="form-field">
+                <label htmlFor="username" className="label-console">
+                  Username
+                </label>
+                <input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={this.setUsername}
+                  className="input-console"
+                  placeholder="Enter your username"
+                />
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="password" className="label-console">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={this.setPassword}
+                  className="input-console"
+                  placeholder="Enter your password"
+                />
+              </div>
+
+              {errorMessage && (
+                <p className="error-message-console">
+                  {errorMessage}
+                </p>
+              )}
+
+              <div className="button-container-console">
+                <button
+                  type="submit"
+                  className="submit-btn-console"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Logging in..." : "Login"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );

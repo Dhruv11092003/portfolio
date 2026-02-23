@@ -1,210 +1,309 @@
 import axios from "axios";
-
 import { Component } from "react";
 import Cookies from "js-cookie";
-import "./index.css";
 import { Navigate } from "react-router-dom";
+import "./index.css";
 
 class AdminPanel extends Component {
   state = {
-    isCertificateMode: true,  // Toggle between certificate and project
+    isCertificateMode: true,
+    isLoading: false,
+    message: "",
+    isError: false,
+    redirect: false,
+
     certificateData: {
       title: "",
       technologiesCovered: "",
       description: "",
       imageUrl: "",
-      verificationLink: ""
+      verificationLink: "",
     },
+
     projectData: {
       projectName: "",
       technologiesUsed: "",
       githubLink: "",
       publishLink: "",
       projectImagesLink: "",
-      projectDescription: ""
+      projectDescription: "",
     },
-    redirect: false,
-
   };
 
   toggleFormMode = () => {
-    this.setState((prevState) => ({
-      isCertificateMode: !prevState.isCertificateMode
+    this.setState((prev) => ({
+      isCertificateMode: !prev.isCertificateMode,
+      message: "",
+      isError: false,
     }));
   };
 
-  handleCertificateChange = (e) => {
-    this.setState({
-      certificateData: {
-        ...this.state.certificateData,
-        [e.target.name]: e.target.value
-      }
-    });
+  handleChange = (e, type) => {
+    const { name, value } = e.target;
+
+    this.setState((prevState) => ({
+      [type]: {
+        ...prevState[type],
+        [name]: value,
+      },
+    }));
   };
 
-  handleProjectChange = (e) => {
-    this.setState({
-      projectData: {
-        ...this.state.projectData,
-        [e.target.name]: e.target.value
-      }
-    });
-  };
-
-
-  Logout = () => {
+  logout = () => {
     Cookies.remove("jwt_token");
     this.setState({ redirect: true });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
+
     const jwtToken = Cookies.get("jwt_token");
     if (!jwtToken) {
-      alert("You must be logged in to upload!");
+      this.setState({
+        message: "Session expired. Please login again.",
+        isError: true,
+      });
       return;
     }
 
     const { isCertificateMode, certificateData, projectData } = this.state;
-    const endpoint = isCertificateMode ? "/api/add-certificate" : "/api/add-project";
-    const data = isCertificateMode ? certificateData : projectData;
+    const endpoint = isCertificateMode
+      ? "/api/add-certificate"
+      : "/api/add-project";
+
+    const payload = isCertificateMode ? certificateData : projectData;
+
+    this.setState({ isLoading: true, message: "", isError: false });
 
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}${endpoint}`,
-        data,
+        payload,
         {
           headers: {
-            Authorization: `Bearer ${jwtToken}`
-          }
+            Authorization: `Bearer ${jwtToken}`,
+          },
         }
       );
+
       if (response.status === 201) {
-        alert("Upload successful!");
+        this.setState({
+          message: "Upload successful.",
+          isError: false,
+          certificateData: {
+            title: "",
+            technologiesCovered: "",
+            description: "",
+            imageUrl: "",
+            verificationLink: "",
+          },
+          projectData: {
+            projectName: "",
+            technologiesUsed: "",
+            githubLink: "",
+            publishLink: "",
+            projectImagesLink: "",
+            projectDescription: "",
+          },
+        });
       }
     } catch (error) {
-      console.error("Upload failed", error);
+      this.setState({
+        message: "Upload failed. Please check the data or server.",
+        isError: true,
+      });
+    } finally {
+      this.setState({ isLoading: false });
     }
   };
 
   render() {
-    const { isCertificateMode, certificateData, projectData } = this.state;
-    if (this.state.redirect) {
-        return <Navigate to="/AdminConsole" />;
-      }
-    return (
-      <div className="upload-form-container">
-        <div className="toggle-switch">
-          <label className="switch">
-            <input
-              type="checkbox"
-              onChange={this.toggleFormMode}
-              checked={!isCertificateMode}
-            />
-            <span className="slider round"></span>
-          </label>
-          <p>{isCertificateMode ? "Upload Certificate" : "Upload Project"}</p>
-        </div>
+    const {
+      isCertificateMode,
+      certificateData,
+      projectData,
+      isLoading,
+      message,
+      isError,
+      redirect,
+    } = this.state;
 
-        <form onSubmit={this.handleSubmit} className="upload-form">
-          {isCertificateMode ? (
-            <>
-              <h2>Upload Certificate</h2>
-              <input
-                type="text"
-                name="title"
-                value={certificateData.title}
-                onChange={this.handleCertificateChange}
-                placeholder="Title"
-                required
-              />
-              <input
-                type="text"
-                name="technologiesCovered"
-                value={certificateData.technologiesCovered}
-                onChange={this.handleCertificateChange}
-                placeholder="Technologies Covered (comma separated)"
-                required
-              />
-              <textarea
-                name="description"
-                value={certificateData.description}
-                onChange={this.handleCertificateChange}
-                placeholder="Description"
-                required
-              />
-              <input
-                type="text"
-                name="imageUrl"
-                value={certificateData.imageUrl}
-                onChange={this.handleCertificateChange}
-                placeholder="Image URL"
-                required
-              />
-              <input
-                type="text"
-                name="verificationLink"
-                value={certificateData.verificationLink}
-                onChange={this.handleCertificateChange}
-                placeholder="Verification Link"
-                required
-              />
-            </>
-          ) : (
-            <>
-              <h2>Upload Project</h2>
-              <input
-                type="text"
-                name="projectName"
-                value={projectData.projectName}
-                onChange={this.handleProjectChange}
-                placeholder="Project Name"
-                required
-              />
-              <input
-                type="text"
-                name="technologiesUsed"
-                value={projectData.technologiesUsed}
-                onChange={this.handleProjectChange}
-                placeholder="Technologies Used (comma separated)"
-                required
-              />
-              <input
-                type="text"
-                name="githubLink"
-                value={projectData.githubLink}
-                onChange={this.handleProjectChange}
-                placeholder="GitHub Link"
-                
-              />
-              <input
-                type="text"
-                name="publishLink"
-                value={projectData.publishLink}
-                onChange={this.handleProjectChange}
-                placeholder="Publish Link"
-                
-              />
-              <input
-                type="text"
-                name="projectImagesLink"
-                value={projectData.projectImagesLink}
-                onChange={this.handleProjectChange}
-                placeholder="Project Images Link (comma separated)"
-                
-              />
-              <textarea
-                name="projectDescription"
-                value={projectData.projectDescription}
-                onChange={this.handleProjectChange}
-                placeholder="Project Description"
-                required
-              />
-            </>
-          )}
-          <button type="submit" className="submit-button">Submit</button>
-        </form>
-        <button onClick={this.Logout}>Logout</button>
+    if (redirect) {
+      return <Navigate to="/AdminConsole" />;
+    }
+
+    return (
+      <div className="admin-panel-wrapper">
+        <div className="admin-panel-card">
+          <div className="admin-header">
+            <h1>Admin Dashboard</h1>
+            <button onClick={this.logout} className="logout-btn">
+              Logout
+            </button>
+          </div>
+
+          <div className="toggle-section">
+            <button
+              className={`toggle-btn ${
+                isCertificateMode ? "active" : ""
+              }`}
+              onClick={() =>
+                this.setState({ isCertificateMode: true })
+              }
+            >
+              Certificate
+            </button>
+
+            <button
+              className={`toggle-btn ${
+                !isCertificateMode ? "active" : ""
+              }`}
+              onClick={() =>
+                this.setState({ isCertificateMode: false })
+              }
+            >
+              Project
+            </button>
+          </div>
+
+          <form onSubmit={this.handleSubmit} className="upload-form">
+            {isCertificateMode ? (
+              <>
+                <input
+                  type="text"
+                  name="title"
+                  value={certificateData.title}
+                  onChange={(e) =>
+                    this.handleChange(e, "certificateData")
+                  }
+                  placeholder="Certificate Title"
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="technologiesCovered"
+                  value={certificateData.technologiesCovered}
+                  onChange={(e) =>
+                    this.handleChange(e, "certificateData")
+                  }
+                  placeholder="Technologies Covered"
+                  required
+                />
+
+                <textarea
+                  name="description"
+                  value={certificateData.description}
+                  onChange={(e) =>
+                    this.handleChange(e, "certificateData")
+                  }
+                  placeholder="Description"
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="imageUrl"
+                  value={certificateData.imageUrl}
+                  onChange={(e) =>
+                    this.handleChange(e, "certificateData")
+                  }
+                  placeholder="Image URL"
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="verificationLink"
+                  value={certificateData.verificationLink}
+                  onChange={(e) =>
+                    this.handleChange(e, "certificateData")
+                  }
+                  placeholder="Verification Link"
+                  required
+                />
+              </>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  name="projectName"
+                  value={projectData.projectName}
+                  onChange={(e) =>
+                    this.handleChange(e, "projectData")
+                  }
+                  placeholder="Project Name"
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="technologiesUsed"
+                  value={projectData.technologiesUsed}
+                  onChange={(e) =>
+                    this.handleChange(e, "projectData")
+                  }
+                  placeholder="Technologies Used"
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="githubLink"
+                  value={projectData.githubLink}
+                  onChange={(e) =>
+                    this.handleChange(e, "projectData")
+                  }
+                  placeholder="GitHub Link"
+                />
+
+                <input
+                  type="text"
+                  name="publishLink"
+                  value={projectData.publishLink}
+                  onChange={(e) =>
+                    this.handleChange(e, "projectData")
+                  }
+                  placeholder="Live Link"
+                />
+
+                <input
+                  type="text"
+                  name="projectImagesLink"
+                  value={projectData.projectImagesLink}
+                  onChange={(e) =>
+                    this.handleChange(e, "projectData")
+                  }
+                  placeholder="Project Images (comma separated)"
+                />
+
+                <textarea
+                  name="projectDescription"
+                  value={projectData.projectDescription}
+                  onChange={(e) =>
+                    this.handleChange(e, "projectData")
+                  }
+                  placeholder="Project Description"
+                  required
+                />
+              </>
+            )}
+
+            {message && (
+              <p className={`form-message ${isError ? "error" : "success"}`}>
+                {message}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={isLoading}
+            >
+              {isLoading ? "Uploading..." : "Submit"}
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

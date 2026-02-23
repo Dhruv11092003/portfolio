@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes,FaCode } from "react-icons/fa";
 import LinkContext from "../../../context/activeLinkContext";
 import ThemeToggle from "../../ui/ThemeToggle";
 import useScrollSpy from "../../../hooks/useScrollSpy";
 
 const navItems = [
   { label: "Home", href: "/", id: "home" },
-  { label: "Resume", href: "/#resume", id: "resume" },
+  { label: "Know Me", href: "/#resume", id: "resume" },
   { label: "Projects", href: "/#Projects", id: "Projects" },
   { label: "Certs", href: "/#certifications", id: "certifications" },
   { label: "Contact", href: "/#contactMe", id: "contactMe" },
@@ -20,7 +20,8 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#04050B]/70">
       <nav className="section-wrap flex items-center justify-between py-4">
-        <a href="/" className="font-display text-lg font-bold tracking-[0.22em] text-slate-900 dark:text-white">DHRUV.AI</a>
+        <a href="/" className="font-display text-lg font-bold tracking-[0.22em] text-slate-900 dark:text-white"><FaCode size={25} />
+</a>
 
         <button
           className="rounded-lg p-2 text-slate-700 transition hover:bg-slate-900/10 md:hidden dark:text-slate-100 dark:hover:bg-white/10"
