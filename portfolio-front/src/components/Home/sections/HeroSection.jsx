@@ -42,7 +42,7 @@ const HeroSection = () => {
           <button
             onClick={() =>
               window.open(
-                "https://drive.google.com/file/d/1_LY4mKtT2T1nc6DeeKbIbzl1H2nkt6xD/view?usp=sharing"
+                "https://drive.google.com/file/d/1I0fS6scGI-5-oO-PwgoFkPS_WBvESFqu/view?usp=sharing"
               )
             }
             className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-3 text-sm font-semibold text-white transition hover:scale-105"
